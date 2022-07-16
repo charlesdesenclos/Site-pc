@@ -50,14 +50,14 @@ input[type=submit]:hover {
 /* NAVBAR*/
 
 @import url('https:fonts.googleapis.com/css?family=Montserrat:500');
-
+/*
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: #24252A;
 }
-
+*/
 li, a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
