@@ -71,11 +71,16 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
 
 }
 
 nav {
     order: 1;
+    
 }
 
 .nav_links{
@@ -98,3 +103,11 @@ nav {
 .cta {
     order: 2;
 }
+
+
+.color{
+    color: #24252A;
+}
+
+/* Index */
+

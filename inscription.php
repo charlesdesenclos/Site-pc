@@ -11,6 +11,23 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+
+
+
+
+
+    <header>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="index.php"> Accueil</a></li>
+            <li><a href="liste_pc.php"> Nos produits</a></li>
+            <li><a href="connexion.php"> Connexion</a></li>
+        </ul>
+            
+    </nav>
+</header>
+
+
     <div id="container">
     <?php 
                 if(isset($_GET['reg_err']))
@@ -96,7 +113,7 @@
 
                     <input type="submit" id="submit" value="Inscription" name="inscription">
 
-                    <a href="connexion.php">Vous avez un compte ? Connectez vous en cliquant ICI !</a>
+                    <a href="connexion.php" class="color">Vous avez un compte ? Connectez vous en cliquant ICI !</a>
                     
                     
                 </form>

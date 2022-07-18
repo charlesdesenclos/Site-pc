@@ -80,7 +80,7 @@
                     if(isset($_POST['connexion']))
                     {
                         $email= $_POST['email'];
-                        $password = $_Post['password'];
+                        $password = $_POST['password'];
                         $RequetSQL = "SELECT * FROM utilisateurs WHERE email = '".$email."' AND password = '".$password."'";
 
                         $resultat = $bdd -> query($RequetSQL);
@@ -91,14 +91,20 @@
 
                         }
                         else {
-                            echo "L'email ou le mot de passe est incorrect.";
+                            echo "L'email ".$email."' ou le mot de passe '".$password."' est incorrect.";
                         }
+                    }
+
+                    else
+
+                    {
+                        echo "Veuillez vous connectez.";
                     }
 
 
 
                 ?>
-                <form action="verification.php" method="POST"> 
+                <form action="" method="POST"> 
                     <h1>Connexion</h1>
                     <label><b>Email :</b></label> 
                     <input type="text" placeholder="Entrez votre email" name="email" required>
@@ -109,7 +115,7 @@
                     <input type="submit" id="submit" value="Connexion" name="connexion">
                     
 
-                    <a href="inscription.php">Vous n'avez pas de compte ? Inscrivez vous en cliquant ICI !</a>
+                    <a href="inscription.php" class="color">Vous n'avez pas de compte ? Inscrivez vous en cliquant ICI !</a>
                     <?php
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];

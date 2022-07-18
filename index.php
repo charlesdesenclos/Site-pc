@@ -11,11 +11,12 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <?php
+        <!--
+        <?php/*
             $User1 = new User()
-
+        */
         ?>
-
+        -->
 
 
 <header>
@@ -28,6 +29,14 @@
             
     </nav>
 </header>
+
+<div class="landing-page">
+    <div align="center">
+        <h1 class="big-title"><mark>Bienvenue sur notre site de vente de pc !</mark></h1>
+        <img src="../Image/pc_image_index.jpg"/></a>
+        
+    </div>
+</div>
 
     
 
