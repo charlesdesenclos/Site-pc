@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+        session_start();
+ ?>
+ <!DOCTYPE html>
 
 <html>
     <head>
@@ -12,17 +15,7 @@
     </head>
     <body>
     <?php
-        session_start();
         require_once 'pdo/config.php'; // ajout connexion bdd 
-
-        $req = $bdd->prepare('SELECT * FROM utilisateurs ');
-        $req->execute(array($_SESSION['user']));
-        $data = $req->fetch();
-
-        
-
-
-        
     ?>
 
 
@@ -32,6 +25,15 @@
             <li><a href="index.php"> Accueil</a></li>
             <li><a href="liste_pc.php"> Nos produits</a></li>
             <li><a href="connexion.php"> Connexion</a></li>
+            <?php 
+                    if(isset($_SESSION['user'])) //affiche déconnexion et la liste des commandes quand l'utilisateur est connecté
+                     {?>
+                        <li><a href="deconnexion.php">Déconnexion</a></li>
+                        <li><a href="liste_commande.php">Liste des commandes</a></li>
+                        <li><a href="modification_pc.php">Modifier votre commande</a></li>
+                        <li><a href="suppresion_pc.php">Supprimer votre commande</a></li><?php
+                    }
+                ?>
         </ul>
             
     </nav>
@@ -95,16 +97,18 @@
                         }
                     }
 
-                    else
+                    
 
+
+                    if(isset($_SESSION['Connexion']))
                     {
-                        echo "Veuillez vous connectez.";
+                        echo "Vous êtes déja connecté";
                     }
-
-
-
-                ?>
-                <form action="" method="POST"> 
+                    else
+                    {
+                        echo " Veuillez vous identifiez";
+                        ?>
+                        <form action="" method="POST"> 
                     <h1>Connexion</h1>
                     <label><b>Email :</b></label> 
                     <input type="text" placeholder="Entrez votre email" name="email" required>
@@ -125,6 +129,13 @@
                     }
                     ?>
                 </form>
+                <?php
+                    }
+
+
+
+                ?>
+                
             
         </div>
         
