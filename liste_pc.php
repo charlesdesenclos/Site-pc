@@ -12,9 +12,20 @@
     </head>
     <body>
 
+    <header>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="index.php"> Accueil</a></li>
+            <li><a href="liste_pc.php"> Nos produits</a></li>
+            <li><a href="connexion.php"> Connexion</a></li>
+        </ul>
+            
+    </nav>
+</header>
+
     <div class="landing-page">
         <div align="center">
-            <h1 class="big-title"><mark>Les meilleurs pizza del mondo !</mark></h1>
+            <h1 class="big-title"><mark>Nos PC !</mark></h1>
         </div>
       </section>
         <div align="center">
