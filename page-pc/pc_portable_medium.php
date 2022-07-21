@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>PC MOYEN</title>
+        <title>PC PORTABLE MOYEN</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -40,7 +40,7 @@
 
     <div class="page">
     <h1 role="heading" itemprop="name" class="espace"><mark> 
-        Notre PC moyen de gamme
+        Notre PC portable moyen de gamme
         </mark></h1>
     <hr>
         <div >
