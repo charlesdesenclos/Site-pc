@@ -27,7 +27,7 @@
             <li><a href="liste_pc.php"> Nos produits</a></li>
             <li><a href="connexion.php"> Connexion</a></li>
             <?php 
-                    if(isset($_SESSION['Connexion'])) //affiche déconnexion et la liste des commandes quand l'utilisateur est connecté
+                    if(isset($_SESSION['Connexion']))  //affiche la déconnexion,la liste des commandes, la page pour modifier et supprimer une commande quand l'utilisateur est connecté
                      {?>
                         <li><a href="deconnexion.php">Déconnexion</a></li>
                         <li><a href="liste_commande.php">Liste des commandes</a></li>

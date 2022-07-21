@@ -2,29 +2,20 @@
         session_start();
  ?>
 
-
 <!DOCTYPE html>
 
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Accueil</title>
+        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" sizes="16x16" href="Image/logo_pc.jpg">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="">
     </head>
     <body>
-        <!--
-        <?php/*
-            $User1 = new User()
-        */
-        ?>
-        -->
 
-
-<header>
+    <header>
     <nav>
         <ul class="nav_links">
             <li><a href="index.php"> Accueil</a></li>
@@ -43,22 +34,8 @@
             
     </nav>
 </header>
-
-<div class="landing-page">
-    <div align="center">
-        <h1 class="big-title"><mark>Bienvenue sur notre site de vente de pc !</mark></h1>
-        <img src="../Image/pc_image_index.jpg"/></a>
         
-    </div>
-</div>
-
-    
-
-
-
-
-
-
+        
         <script src="" async defer></script>
     </body>
 </html>
