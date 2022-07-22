@@ -46,8 +46,8 @@
             <a href="page-pc/pc_hautdegamme.php"><img src="../Image/image_tour_1.jpg"/></a>
             <a href="page-pc/pc_medium.php"><img src="../Image/image_tour_2.png"/></a>
             <h1 style="font-size: 60px;"><font color = "black"><mark>Les pc portables.</mark></font></h1>
-            <a href="page-pc/pc_portable_hautdegamme.php"><img src="../Image/image_portable_1.png"/></a>
-            <a href="page-pc/pc_portable_medium.php"><img src="../Image/image_portable_2.png"/></a>
+            <a href="page-pc/pc_portable_hautdegamme.php"><img src="../Image/image_pc_portable_2.jpg"/></a>
+            <a href="page-pc/pc_portable_medium.php"><img src="../Image/image_pc_portable_1.png"/></a>
         </div>
     </div>
         

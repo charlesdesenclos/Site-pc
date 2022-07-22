@@ -35,7 +35,7 @@
     </nav>
     </header>
 
-    <center><img src="Image/image_tour_1.jpg" alt="bacon_pizza" height="450px"></center>
+    <center><img src="Image/image_pc_portable_1.png" alt=" PC PORTABLE MOYEN DE GAMME" height="450px"></center>
     
 
     <div class="page">

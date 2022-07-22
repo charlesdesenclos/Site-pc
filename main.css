@@ -109,5 +109,12 @@ nav {
     color: #24252A;
 }
 
-/* Index */
+/* Liste PC */
+
+.big-title {
+    color: white;
+    font-size: 80px;
+    padding: 20px 50px;
+}
+
 
