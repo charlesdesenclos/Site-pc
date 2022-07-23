@@ -13,6 +13,7 @@
         <title>PC PORTABLE HAUT DE GAMME</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="16x16" href="Image/logo_pc.jpg">
         <link rel="stylesheet" href="../main.css">
     </head>
     <body>
@@ -37,7 +38,7 @@
         </nav>
     </header>
 
-    <center><img src="Image/image_pc_portable_2.jpg" alt="PC PORTABLE HAUT DE GAMME" height="450px"></center>
+    <center><img src="../Image/image_pc_portable_2.jpg" alt="PC PORTABLE HAUT DE GAMME" height="450px"></center>
     
 
     <div class="page">

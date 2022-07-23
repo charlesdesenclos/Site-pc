@@ -11,6 +11,7 @@
         <title>PC MOYEN</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="16x16" href="Image/logo_pc.jpg">
         <link rel="stylesheet" href="../main.css">
     </head>
     <body>
@@ -35,7 +36,7 @@
     </nav>
     </header>
 
-    <center><img src="Image/image_tour_2.png" alt="PC MOYEN DE GAMME" height="450px"></center>
+    <center><img src="../Image/image_tour_2.png" alt="PC MOYEN DE GAMME" height="450px"></center>
     
 
     <div class="page">

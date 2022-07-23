@@ -11,6 +11,7 @@
         <title>PC PORTABLE MOYEN</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="16x16" href="Image/logo_pc.jpg">
         <link rel="stylesheet" href="../main.css">
     </head>
     <body>
@@ -35,7 +36,7 @@
     </nav>
     </header>
 
-    <center><img src="Image/image_pc_portable_1.png" alt=" PC PORTABLE MOYEN DE GAMME" height="450px"></center>
+    <center><img src="../Image/image_pc_portable_1.png" alt=" PC PORTABLE MOYEN DE GAMME" height="450px"></center>
     
 
     <div class="page">
@@ -54,7 +55,21 @@
 
             <h2 class="espace"><mark>SSD : 1To</mark></h2>
 
+        
+
+        <?php 
+        if($data['pseudo']) //affiche la page commande si on est connecté sinon cela nous permet de nous connecter pour commander
+        {?>
+            <center><a href="commande.php"><input class="button" type="button" value="Commander"></a></center><?php
+        }
+        else
+        {?>
+            <center><a href="connexion2.php"><input class="button" type="button" value="Commander"></a></center><?php
+        }
+    ?>
         </div>
+    </div>
+
         <script src="" async defer></script>
     </body>
 </html>
