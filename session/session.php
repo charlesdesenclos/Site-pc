@@ -1,4 +1,8 @@
 <?php 
+
+include("../classes/User.php");
+
+$TheUser = newUser(null,null,null,null);
         
       
         try 

@@ -7,7 +7,6 @@
         private $id_;
         private $pseudo_;
         private $email_;
-        private $password_;
         private $pdo_;
 
 
@@ -32,12 +31,21 @@
             return $this-> email_;
         }
 
-        public function connection()
+        public function connection($email, $password)
         {
-            if( isset($_POST["btn_validation"]))
+            $RequetSQL = "SELECT * FROM utilisateurs WHERE email = '".$email."' AND password = '".$password."'";
+            $resultat = $bdd -> query($RequetSQL);
+            if ( $resultat-> rowCount() > 0 )
             {
-                $this-> pseudo_ = $_POST["pseudo"];
-                $this->
+                echo"Vous êtes connectés";
+                $_SESSION['Connexion'] = true;
+                return true;
+
+            }
+            else 
+            {
+                echo "L'email ".$email."' ou le mot de passe '".$password."' est incorrect.";
+                return false;
             }
         }
 
