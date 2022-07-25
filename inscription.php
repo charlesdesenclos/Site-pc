@@ -100,7 +100,12 @@
             <?php
                 if(isset($_POST['inscription']))
                 {
-                    
+                    $pseudo = $_POST['pseudo'];
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+
+                    $RequetSQL = "INSERT INTO utilisateurs (pseudo,email, password) VALUES ('".$pseudo."','".$email."','".$password."')";
+                    $resultat = $GLOBALS['bdd'] -> query($RequetSQL);
                 }
 
 
@@ -120,9 +125,6 @@
 
                     <label><b>Mot de passe</b></label>
                     <input type="password" placeholder="Entrez un mot de passe" name="password" required>
-
-                    <label><b>Confirmez le mot de passe</b></label>
-                    <input type="password" placeholder="Entrez un mot de passe" name="password_retype" required>
 
                     <input type="submit" id="submit" value="Inscription" name="inscription">
 
