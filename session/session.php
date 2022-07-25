@@ -29,7 +29,7 @@ $TheUser = new User(null,null,null);
     /* --------------------*/
 
 
-    if(isset($_SESSION['Connexion']))
+    if(isset($_SESSION['Connexion']) && $_SESSION['Connexion'] == true)
     {
         echo "Vous êtes déja connecté";
     }
