@@ -1,8 +1,8 @@
 <?php 
 
-include("../Classe/User.php");
+include("./Classe/User.php");
 
-$TheUser = newUser(null,null,null,null);
+$TheUser = new User(null,null,null);
         
       
         try 
