@@ -47,6 +47,16 @@
                 echo "L'email ".$email."' ou le mot de passe '".$password."' est incorrect.";
                 return false;
             }
+            header('Location: index.php'); // On redirige
+            die();
+        }
+
+        public function deconnexion()
+        {
+            session_start(); // demarrage de la session
+            session_destroy(); // on détruit la/les session(s), soit si vous utilisez une autre session, utilisez de préférence le unset()
+            header('Location: index.php'); // On redirige
+            die();
         }
 
     }
