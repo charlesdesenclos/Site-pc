@@ -1,13 +1,13 @@
 <?php 
 
-include("../classes/User.php");
+include("../Classe/User.php");
 
 $TheUser = newUser(null,null,null,null);
         
       
         try 
     {
-        $bdd = new PDO("mysql:host=mysql-desenclos.alwaysdata.net;dbname=desenclos_pc;charset=utf8", "desenclos", "sqK8ZUWxuvEpp!y");
+        $GLOBALS['bdd'] = new PDO("mysql:host=mysql-desenclos.alwaysdata.net;dbname=desenclos_pc;charset=utf8", "desenclos", "sqK8ZUWxuvEpp!y");
 
         
     }
@@ -21,21 +21,7 @@ $TheUser = newUser(null,null,null,null);
 
     if(isset($_POST['connexion']))
     {
-        $email= $_POST['email'];
-        $password = $_POST['password'];
-        $RequetSQL = "SELECT * FROM utilisateurs WHERE email = '".$email."' AND password = '".$password."'";
-
-        $resultat = $bdd -> query($RequetSQL);
-        if ( $resultat-> rowCount() > 0 )
-        {
-            echo"Vous êtes connectés";
-            $_SESSION['Connexion'] = true;
-
-        }
-        else 
-        {
-            echo "L'email ".$email."' ou le mot de passe '".$password."' est incorrect.";
-        }
+        $TheUser->connection($_POST['email'],$_POST['password']);
     }
 
 

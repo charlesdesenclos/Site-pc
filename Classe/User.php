@@ -34,7 +34,7 @@
         public function connection($email, $password)
         {
             $RequetSQL = "SELECT * FROM utilisateurs WHERE email = '".$email."' AND password = '".$password."'";
-            $resultat = $bdd -> query($RequetSQL);
+            $resultat = $GLOBALS['bdd'] -> query($RequetSQL);
             if ( $resultat-> rowCount() > 0 )
             {
                 echo"Vous êtes connectés";
