@@ -58,6 +58,26 @@
             die();
         }
 
+        public function inscription($pseudo, $email, $password)
+        {
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+                    $email = htmlspecialchars($_POST['email']);
+                    $password = htmlspecialchars($_POST['password']);
+
+                    // On vérifie si l'utilisateur existe
+                    $check = $GLOBALS['bdd']->prepare('SELECT pseudo, email, password FROM utilisateurs WHERE email = ?');
+                    $check->execute(array($email));
+                    $data = $check->fetch();
+                    $row = $check->rowCount();
+
+                    $email = strtolower($email); // on transforme toute les lettres majuscule en minuscule pour avoir deux compte différents   
+                    
+                    
+
+                    $RequetSQL = "INSERT INTO utilisateurs (pseudo,email, password) VALUES ('".$pseudo."','".$email."','".$password."')";
+                    $resultat = $GLOBALS['bdd'] -> query($RequetSQL);
+        }
+
     }
 
 
