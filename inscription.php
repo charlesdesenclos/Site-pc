@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+    <?php
+        require_once 'pdo/config.php'; // ajout connexion bdd 
+    ?>
 
 
 
@@ -100,12 +103,12 @@
             <?php
                 if(isset($_POST['inscription']))
                 {
-                    $pseudo = $_POST['pseudo'];
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
+                    $pseudo = htmlspecialchars($_POST['pseudo']);
+                    $email = htmlspecialchars($_POST['email']);
+                    $password = htmlspecialchars($_POST['password']);
 
                     // On vérifie si l'utilisateur existe
-                    $check = $bdd->prepare('SELECT pseudo, email, password FROM utilisateurs WHERE email = ?');
+                    $check = $GLOBALS['bdd']->prepare('SELECT pseudo, email, password FROM utilisateurs WHERE email = ?');
                     $check->execute(array($email));
                     $data = $check->fetch();
                     $row = $check->rowCount();
@@ -125,7 +128,7 @@
 
 
             <!--inscription-->
-                <form action="verfication_inscription.php" method="POST">
+                <form action="" method="POST">
                     <h1>Inscription</h1>
                     <label><b>Nom d'utilisateur</b></label> 
                     <input type="text" placeholder="Entrez un nom d'utilisateur" name="pseudo" required>
