@@ -71,7 +71,7 @@
                     <input type="text" placeholder="Entrez votre code postale" name="code_postale" required>
 
                     
-                    <input type="submit"  id="submit" value="Adresse">
+                    <input type="submit"  id="submit" value="Adresse" name="Adresse">
 
                     
                     
