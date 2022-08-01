@@ -13,8 +13,8 @@
     <?php
         session_start();
         require_once 'config.php'; // ajout connexion bdd 
-        $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
-        $req->execute(array($_SESSION['user']));
+        $req = $bdd->prepare('SELECT * FROM utilisateurs ');
+        $req->execute(array($_SESSION['Connexion']));
         $data = $req->fetch();
         
         
