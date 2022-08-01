@@ -1,3 +1,6 @@
+<?php
+        session_start();
+ ?>
 <!DOCTYPE html>
 
 <html>
@@ -36,12 +39,49 @@
     </nav>
 </header>
 
+<?php
+    if(isset($_POST['Adresse']))
+    {
+        $num_porte = $_POST['num_porte'];
+        $rue = $_POST['rue'];
+        $ville = $_POST['ville'];
+        $code_postale = $_POST['code_postale'];
+
+        $reqAdresse = "INSERT INTO adresse (numero_porte, rue, ville, code_postale) VALUES ( '".$num_porte."' , '".$rue."', '".$ville."', '".$code_postale."')";
+        $resultat = $GLOBALS['bdd'] -> query($reqAdresse);
+    }
+
+
+?>
+
 <div id="container">
-            <!--commande-->
+
+
                 <form action="" method="POST" >
-                    <h1>Commande</h1>
+                    <h1>Etapes 1:</h1>
                     
-                    <h2>Etapes 1:</h2>
+                    <h2>Adresse</h2>
+
+                    <input type="text" placeholder="Entrez votre numéro de porte" name="num_porte" required>
+
+                    <input type="text" placeholder="Entrez votre rue" name="rue" required>
+
+                    <input type="text" placeholder="Entrez votre ville" name="ville" required>
+
+                    <input type="text" placeholder="Entrez votre code postale" name="code_postale" required>
+
+                    
+                    <input type="submit"  id="submit" value="Adresse">
+
+                    
+                    
+                </form>
+            <!--commande-->
+            <!--
+                <form action="" method="POST" >
+                    <h1>Etapes 3:</h1>
+                    
+                    <h2>Commande</h2>
 
                     <label><b>PC :</b></label> 
                     <select name="id_pizza" id="select-pizza">
@@ -58,6 +98,7 @@
                     
                     
                 </form>
+            -->
             
         </div>
         
