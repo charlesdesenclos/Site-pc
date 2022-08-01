@@ -35,6 +35,29 @@
             
     </nav>
 </header>
+
+<div id="container">
+            <!--commande-->
+                <form action="" method="POST" >
+                    <h1>Commande</h1>
+                    
+                    <label><b>Pizza :</b></label> 
+                    <select name="id_pizza" id="select-pizza">
+                        <option value="">Choisisez votre pizza</option>
+                        <option value="1">PC HAUT DE GAMME</option>
+                        <option value="2">PC MEDIUM</option>
+                        <option value="3">PC PORTABLE HAUT DE GAMME</option>
+                        <option value="4">PC PORTABLE MEDIUM</option>
+                    </select>
+
+                    
+                    <input type="submit"  id="submit" value="Commander">
+
+                    
+                    
+                </form>
+            
+        </div>
         
         <script src="" async defer></script>
     </body>
