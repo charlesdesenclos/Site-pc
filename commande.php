@@ -41,6 +41,8 @@
                 <form action="" method="POST" >
                     <h1>Commande</h1>
                     
+                    <h2>Etapes 1:</h2>
+
                     <label><b>PC :</b></label> 
                     <select name="id_pizza" id="select-pizza">
                         <option value="">Choisisez votre pizza</option>
