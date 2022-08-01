@@ -41,7 +41,7 @@
                 <form action="" method="POST" >
                     <h1>Commande</h1>
                     
-                    <label><b>Pizza :</b></label> 
+                    <label><b>PC :</b></label> 
                     <select name="id_pizza" id="select-pizza">
                         <option value="">Choisisez votre pizza</option>
                         <option value="1">PC HAUT DE GAMME</option>
