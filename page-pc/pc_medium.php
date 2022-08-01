@@ -56,14 +56,14 @@
             <h2 class="espace"><mark>SSD : 1To</mark></h2>
 
             <?php 
-        if($data['pseudo']) //affiche la page commande si on est connecté sinon cela nous permet de nous connecter pour commander
-        {?>
-            <center><a href="commande.php"><input class="button" type="button" value="Commander"></a></center><?php
+        /*if($data['pseudo']) //affiche la page commande si on est connecté sinon cela nous permet de nous connecter pour commander
+        {*/?>
+            <center><a href="commande.php"><input class="button" type="button" value="Commander"></a></center><?php/*
         }
         else
         {?>
             <center><a href="connexion2.php"><input class="button" type="button" value="Commander"></a></center><?php
-        }
+        }*/
     ?>
         </div>
     </div>
