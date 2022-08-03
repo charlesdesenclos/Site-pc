@@ -12,7 +12,7 @@
     <body>
     <?php
         session_start();
-        require_once 'config.php'; // ajout connexion bdd 
+        require_once 'pdo/config.php'; // ajout connexion bdd 
         $req = $bdd->prepare('SELECT * FROM utilisateurs ');
         $req->execute(array($_SESSION['Connexion']));
         $data = $req->fetch();
@@ -32,8 +32,8 @@
             ?>
             <table width="100%" border="1" cellpadding="5">
                 <tr>
-                    <th>Nom de la pizza</th>
-                    <th>Prix de la pizza</th>
+                    <th>Nom du pc</th>
+                    <th>Prix du pc</th>
                     <th>Nom</th>
                 </tr>
                 <?php
