@@ -23,7 +23,7 @@
 
         public function getpseudo()
         {
-            return $this -> id_;
+            return $this -> pseudo_;
         }
 
         public function getemail()
@@ -31,14 +31,17 @@
             return $this-> email_;
         }
 
-        public function connection($email, $password)
+        public function connection($pseudo ,$email, $password)
         {
-            $RequetSQL = "SELECT * FROM utilisateurs WHERE email = '".$email."' AND password = '".$password."'";
+            $RequetSQL = "SELECT * FROM utilisateurs WHERE pseudo ='".$pseudo."' AND email = '".$email."' AND password = '".$password."'";
             $resultat = $GLOBALS['bdd'] -> query($RequetSQL);
+            
             if ( $resultat-> rowCount() > 0 )
             {
                 echo"Vous êtes connectés";
                 $_SESSION['Connexion'] = true;
+                echo $_SESSION['pseudo'] = $pseudo;
+               
                 return true;
 
             }

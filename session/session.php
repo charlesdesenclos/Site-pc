@@ -21,7 +21,8 @@ $TheUser = new User(null,null,null);
 
     if(isset($_POST['connexion']))
     {
-        $TheUser->connection($_POST['email'],$_POST['password']);
+        $TheUser->connection($_POST['pseudo'],$_POST['email'],$_POST['password']);
+        
         header('Location: index.php'); // On redirige
         die();
     }
@@ -33,7 +34,10 @@ $TheUser = new User(null,null,null);
 
     if(isset($_SESSION['Connexion']) && $_SESSION['Connexion'] == true)
     {
-        echo "Vous êtes déja connecté";
+        echo "Vous êtes déja connecté ";
+    
+        
+        
     }
     else
     {
@@ -41,6 +45,10 @@ $TheUser = new User(null,null,null);
     ?>
     <form action="" method="POST"> 
     <h1>Connexion</h1>
+
+    <label><b>Pseudo :</b></label> 
+    <input type="text" placeholder="Entrez votre pseudo" name="pseudo" required>
+
     <label><b>Email :</b></label> 
     <input type="text" placeholder="Entrez votre email" name="email" required>
 
