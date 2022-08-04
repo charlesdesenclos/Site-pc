@@ -1,3 +1,11 @@
+<?php
+        session_start();
+
+        include("./Classe/User.php");
+
+        //echo $_SESSION['pseudo'];
+        
+ ?>
 <!DOCTYPE html>
 
 
@@ -17,7 +25,15 @@
         <ul class="nav_links">
             <li><a href="index.php"> Accueil</a></li>
             <li><a href="liste_pc.php"> Nos produits</a></li>
-            <li><a href="connexion.php"> Connexion</a></li>
+            <?php
+                if($_SESSION['Connexion'] !== true)
+                {?>
+                    <li><a href="connexion.php"> Connexion</a></li>
+                    <?php
+                }
+
+            ?>
+            
             <?php 
                     if(isset($_SESSION['Connexion']))  //affiche la déconnexion,la liste des commandes, la page pour modifier et supprimer une commande quand l'utilisateur est connecté
                      {?>
@@ -27,10 +43,11 @@
                         <li><a href="suppresion_pc.php">Supprimer votre commande</a></li><?php
                     }
             ?>
+             <li>Vous êtes connecter en tant que : <?php echo $_SESSION['pseudo'];  ?></li>
         </ul>
             
     </nav>
-    </header>
+</header>
         
         <script src="" async defer></script>
     </body>
