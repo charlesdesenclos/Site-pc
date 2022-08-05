@@ -3,6 +3,10 @@
 
         include("./Classe/User.php");
 
+      
+
+        $TheUser = new User(null,null,null);
+
         //echo $_SESSION['pseudo'];
         
  ?>

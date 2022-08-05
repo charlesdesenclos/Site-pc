@@ -1,11 +1,4 @@
-<?php
-        session_start();
 
-        include("./Classe/User.php");
-
-        //echo $_SESSION['pseudo'];
-        
- ?>
 
 <!DOCTYPE html>
 
