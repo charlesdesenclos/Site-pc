@@ -83,6 +83,20 @@
         $resultEtape2 = true;
     }
 
+    if(isset($_POST['Commande']))
+    {
+        $id_pc = $_POST['nom_carte'];
+        
+        $pseudo = $_SESSION['pseudo'];
+        $reqVerif = "SELECT id FROM utilisateurs where pseudo = '".$pseudo."'";
+        $id_utilisateurs = $GLOBALS['bdd'] ->query($reqVerif);
+
+        $reqCommande = "INSERT INTO panier (id_pc, id_utilisateurs ) VALUES ( '".$id_pc."', '".$id_utilisateurs."' )";
+        $resultat = $GLOBALS['bdd'] -> query($reqCommande);
+
+        
+    }
+
 
 ?>
 
@@ -150,9 +164,9 @@
                     <select name="id_pc" id="select-pc">
                         <option value="">Choisisez votre pc</option>
                         <option value="1">PC HAUT DE GAMME</option>
-                        <option value="2">PC MEDIUM</option>
+                        <option value="2">PC MOYEN DE GAMME</option>
                         <option value="3">PC PORTABLE HAUT DE GAMME</option>
-                        <option value="4">PC PORTABLE MEDIUM</option>
+                        <option value="4">PC PORTABLE MOYEN DE GAMME</option>
                     </select>
 
                     

@@ -115,8 +115,20 @@
                 if(isset($_POST['inscription']))
                 {
                     $TheUser->inscription($_POSY['pseudo'], $_POST['email'],$_POST['password']);
-                    header('Location: connexion.php'); // On redirige
-                    die();
+                    
+
+                    if ($comptevalide == true)
+                    {
+                        header('Location: connexion.php'); // On redirige
+                        die();
+                    }
+                    else if($comptevalide == false)
+                    {?>
+                        <div id="container">
+                            <?php echo "Compte déja existant";?>
+                        </div>
+                        <?php
+                    }    
                 }
 
 

@@ -20,9 +20,12 @@
     if(isset($_POST['connexion']))
     {
         $TheUser->connection($_POST['pseudo'],$_POST['email'],$_POST['password']);
+
+            header('Location: index.php'); // On redirige
+            die();
+       
         
-        header('Location: index.php'); // On redirige
-        die();
+        
     }
 
 
