@@ -57,11 +57,11 @@
       </section>
         <div align="center">
             <h1 style="font-size: 60px;"><font color = "black"><mark>Les pc fixes :</mark></font></h1>
-            <a href="page-pc/pc_hautdegamme.php"><img src="../Image/image_tour_1.jpg"/></a>
-            <a href="page-pc/pc_medium.php"><img src="../Image/image_tour_2.png"/></a>
+            <a href="page-pc/pc_hautdegamme.php"><img src="../Image/image_tour_1.jpg" alt="PC HAUT DE GAMME" width="500px" height="500px"/></a>
+            <a href="page-pc/pc_medium.php"><img src="../Image/image_tour_2.png" alt="PC MOYEN DE GAMME" width="500px" height="500px"/></a>
             <h1 style="font-size: 60px;"><font color = "black"><mark>Les pc portables :</mark></font></h1>
-            <a href="page-pc/pc_portable_hautdegamme.php"><img src="../Image/image_pc_portable_2.jpg"/></a>
-            <a href="page-pc/pc_portable_medium.php"><img src="../Image/image_pc_portable_1.png"/></a>
+            <a href="page-pc/pc_portable_hautdegamme.php"><img src="../Image/image_pc_portable_2.jpg" alt="PC PORTABLE HAUT DE GAMME" width="500px" height="500px"/></a>
+            <a href="page-pc/pc_portable_medium.php"><img src="../Image/image_pc_portable_1.png" alt="PC PORTABLE MOYEN DE GAMME" width="500px" height="500px"/></a>
         </div>
     </div>
         
