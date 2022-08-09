@@ -52,6 +52,14 @@
             
     </nav>
 </header>
+<?php
+    $pseudo = $_SESSION['pseudo'];
+    //echo $pseudo;
+    $req = $bdd->prepare("SELECT id FROM utilisateurs WHERE pseudo ='".$pseudo."'");
+    $req->execute(array($_SESSION['user']));
+    $data = $req->fetch();
+
+?>
 
 <?php
     $resultEtape1 = false;
@@ -80,18 +88,21 @@
         $reqBancaire = "INSERT INTO bancaire (nom_carte, numero_carte, date_expiration, cvc) VALUES ( '".$nom_carte."' , '".$num_carte."', '".$date_expiration."', '".$cvc."')";
         $resultat = $GLOBALS['bdd'] -> query($reqBancaire);
 
+        $resultEtape1 = true;
         $resultEtape2 = true;
     }
 
-    if(isset($_POST['Commande']))
+    if(isset($_POST['Commande']) && isset($data['id']))
     {
-        $id_pc = $_POST['nom_carte'];
+        $id_pc = $_POST['id_pc'];
+        $data = htmlspecialchars($data['id']);
         
-        $pseudo = $_SESSION['pseudo'];
-        $reqVerif = "SELECT id FROM utilisateurs where pseudo = '".$pseudo."'";
-        $id_utilisateurs = $GLOBALS['bdd'] ->query($reqVerif);
+        
 
-        $reqCommande = "INSERT INTO panier (id_pc, id_utilisateurs ) VALUES ( '".$id_pc."', '".$id_utilisateurs."' )";
+        
+       
+
+        $reqCommande = "INSERT INTO panier (id_pc, id_utilisateurs ) VALUES ( '".$id_pc."', '".$data."' )";
         $resultat = $GLOBALS['bdd'] -> query($reqCommande);
 
         
