@@ -67,9 +67,14 @@
         <div class="liste_commande">
             <h1>Vos Commandes</h1>
             <?php
+
+            include("./Classe/Panier.php");
+
+            $Thepanier = new Panier(null,null,null);
+
+            $RequetStatement = $Thepanier -> liste_panier();
             
-            $sql = 'SELECT pc.nom_pc AS nompc, pc.prix AS nomprix, utilisateurs.pseudo AS nom, panier.id_utilisateurs AS id FROM panier,pc,utilisateurs WHERE pc.id = panier.id_pc AND utilisateurs.id = panier.id_utilisateurs ORDER BY panier.id DESC';
-            $RequetStatement = $GLOBALS['bdd']->query($sql);
+            
             
             
             ?>
