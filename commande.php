@@ -65,27 +65,29 @@
     $resultEtape1 = false;
     $resultEtape2 = false;
     
-    if(isset($_POST['Adresse']))
+    if(isset($_POST['Adresse']) && isset($data['id']))
     {
         $num_porte = $_POST['num_porte'];
         $rue = $_POST['rue'];
         $ville = $_POST['ville'];
         $code_postale = $_POST['code_postale'];
+        $data = htmlspecialchars($data['id']);
 
-        $reqAdresse = "INSERT INTO adresse (numero_porte, rue, ville, code_postale) VALUES ( '".$num_porte."' , '".$rue."', '".$ville."', '".$code_postale."')";
+        $reqAdresse = "INSERT INTO adresse (numero_porte, rue, ville, code_postale, id_utilisateurs) VALUES ( '".$num_porte."' , '".$rue."', '".$ville."', '".$code_postale."', '".$data."')";
         $resultat = $GLOBALS['bdd'] -> query($reqAdresse);
 
         $resultEtape1 = true;
     }
 
-    if(isset($_POST['Bancaire']))
+    if(isset($_POST['Bancaire']) && isset($data['id']))
     {
         $nom_carte = $_POST['nom_carte'];
         $num_carte = $_POST['num_carte'];
         $date_expiration = $_POST['date_expiration'];
         $cvc = $_POST['cvc'];
+        $data = htmlspecialchars($data['id']);
 
-        $reqBancaire = "INSERT INTO bancaire (nom_carte, numero_carte, date_expiration, cvc) VALUES ( '".$nom_carte."' , '".$num_carte."', '".$date_expiration."', '".$cvc."')";
+        $reqBancaire = "INSERT INTO bancaire (nom_carte, numero_carte, date_expiration, cvc, id_utilisateurs) VALUES ( '".$nom_carte."' , '".$num_carte."', '".$date_expiration."', '".$cvc."', '".$data."' )";
         $resultat = $GLOBALS['bdd'] -> query($reqBancaire);
 
         $resultEtape1 = true;
