@@ -18,9 +18,16 @@
             $this -> id_utilisateurs_ = $Newid_utilisateurs;
         }
 
-        public function inscription_adresse()
+        public function inscription_adresse($num_porte, $rue, $ville, $code_postale, $data)
         {
-            
+            $num_porte = $_POST['num_porte'];
+            $rue = $_POST['rue'];
+            $ville = $_POST['ville'];
+            $code_postale = $_POST['code_postale'];
+            $data = htmlspecialchars($data['id']);
+
+            $reqAdresse = "INSERT INTO adresse (numero_porte, rue, ville, code_postale, id_utilisateurs) VALUES ( '".$num_porte."' , '".$rue."', '".$ville."', '".$code_postale."', '".$data."')";
+            $resultat = $GLOBALS['bdd'] -> query($reqAdresse);
         }
 
     }

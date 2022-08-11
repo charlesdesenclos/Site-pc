@@ -67,28 +67,24 @@
     
     if(isset($_POST['Adresse']) && isset($data['id']))
     {
-        $num_porte = $_POST['num_porte'];
-        $rue = $_POST['rue'];
-        $ville = $_POST['ville'];
-        $code_postale = $_POST['code_postale'];
-        $data = htmlspecialchars($data['id']);
 
-        $reqAdresse = "INSERT INTO adresse (numero_porte, rue, ville, code_postale, id_utilisateurs) VALUES ( '".$num_porte."' , '".$rue."', '".$ville."', '".$code_postale."', '".$data."')";
-        $resultat = $GLOBALS['bdd'] -> query($reqAdresse);
+        include("./Classe/Adresse.php");
+
+        $TheAdresse = new Adresse(null,null,null,null,null,null);
+
+        $TheAdresse->inscription_adresse($_POST['num_porte'], $_POST['rue'], $_POST['ville'], $_POST['code_postale'], $data);
 
         $resultEtape1 = true;
     }
 
     if(isset($_POST['Bancaire']) && isset($data['id']))
     {
-        $nom_carte = $_POST['nom_carte'];
-        $num_carte = $_POST['num_carte'];
-        $date_expiration = $_POST['date_expiration'];
-        $cvc = $_POST['cvc'];
-        $data = htmlspecialchars($data['id']);
+        
+        include("./Classe/Bancaire.php");
 
-        $reqBancaire = "INSERT INTO bancaire (nom_carte, numero_carte, date_expiration, cvc, id_utilisateurs) VALUES ( '".$nom_carte."' , '".$num_carte."', '".$date_expiration."', '".$cvc."', '".$data."' )";
-        $resultat = $GLOBALS['bdd'] -> query($reqBancaire);
+        $TheBancaire = new Bancaire(null,null,null,null,null,null);
+
+        $TheBancaire->inscription_bancaire($_POST['nom_carte'], $_POST['num_carte'], $_POST['date_expiration'], $_POST['cvc'], $data);
 
         $resultEtape1 = true;
         $resultEtape2 = true;
@@ -96,16 +92,15 @@
 
     if(isset($_POST['Commande']) && isset($data['id']))
     {
-        $id_pc = $_POST['id_pc'];
-        $data = htmlspecialchars($data['id']);
-        
-        
 
-        
-       
+        include("./Classe/Panier.php");
 
-        $reqCommande = "INSERT INTO panier (id_pc, id_utilisateurs ) VALUES ( '".$id_pc."', '".$data."' )";
-        $resultat = $GLOBALS['bdd'] -> query($reqCommande);
+        $ThePanier = new Panier(null, null, null);
+
+        $ThePanier-> inscription_panier($_POST['id_pc'], $data);
+
+        header('Location: index.php'); // On redirige vers l'index
+        die();
 
         
     }

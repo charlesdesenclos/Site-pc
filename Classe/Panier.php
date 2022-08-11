@@ -20,6 +20,15 @@
 
             return $RequetStatement;
         }
+
+        public function inscription_panier($id_pc, $data)
+        {
+            $id_pc = $_POST['id_pc'];
+            $data = htmlspecialchars($data['id']);
+        
+            $reqCommande = "INSERT INTO panier (id_pc, id_utilisateurs ) VALUES ( '".$id_pc."', '".$data."' )";
+            $resultat = $GLOBALS['bdd'] -> query($reqCommande);
+        }
     }
 
 

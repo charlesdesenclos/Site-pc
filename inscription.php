@@ -114,7 +114,7 @@
                 $TheUser = new User(null,null,null);
                 if(isset($_POST['inscription']))
                 {
-                    $TheUser->inscription($_POSY['pseudo'], $_POST['email'],$_POST['password']);
+                    $TheUser->inscription($_POST['pseudo'], $_POST['email'],$_POST['password']);
                     
 
                     if ($comptevalide == true)
