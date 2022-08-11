@@ -21,7 +21,7 @@
     {
         $TheUser->connection($_POST['pseudo'],$_POST['email'],$_POST['password']);
 
-            header('Location: index.php'); // On redirige
+            header('Location: index.php'); // On redirige vers la page de l'index
             die();
        
         

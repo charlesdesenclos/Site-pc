@@ -119,7 +119,7 @@
 
                     if ($comptevalide == true)
                     {
-                        header('Location: connexion.php'); // On redirige
+                        header('Location: connexion.php'); // On redirige vers la page de connexion
                         die();
                     }
                     else if($comptevalide == false)
