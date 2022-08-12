@@ -138,23 +138,23 @@
 
 
             <!--inscription-->
-                <form action="" method="POST">
-                    <h1>Inscription</h1>
-                    <label><b>Nom d'utilisateur</b></label> 
-                    <input type="text" placeholder="Entrez un nom d'utilisateur" name="pseudo" required>
+            <form action="" method="POST">
+                <h1>Inscription</h1>
+                <label><b>Nom d'utilisateur</b></label> 
+                <input type="text" placeholder="Entrez un nom d'utilisateur" name="pseudo" required>
 
-                    <label><b>Email :</b></label>
-                    <input type="text" placeholder="Entrez votre email" name="email"required>
+                <label><b>Email :</b></label>
+                <input type="text" placeholder="Entrez votre email" name="email"required>
 
-                    <label><b>Mot de passe</b></label>
-                    <input type="password" placeholder="Entrez un mot de passe" name="password" required>
+                <label><b>Mot de passe</b></label>
+                <input type="password" placeholder="Entrez un mot de passe" name="password" required>
 
-                    <input type="submit" id="submit" value="Inscription" name="inscription">
+                <input type="submit" id="submit" value="Inscription" name="inscription">
 
-                    <a href="connexion.php" class="color">Vous avez un compte ? Connectez vous en cliquant ICI !</a>
+                <a href="connexion.php" class="color">Vous avez un compte ? Connectez vous en cliquant ICI !</a>
                     
                     
-                </form>
+            </form>
                 
             
         </div>

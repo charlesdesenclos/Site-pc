@@ -20,6 +20,9 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+    <?php
+        require_once 'pdo/config.php'; // ajout connexion bdd 
+    ?>
     <header>
     <nav>
         <ul class="nav_links">
@@ -48,8 +51,68 @@
             
     </nav>
 </header>
+    <?php
+        $pseudo = $_SESSION['pseudo'];
+        //echo $pseudo;
+        $req = $GLOBALS['bdd']->prepare("SELECT id FROM utilisateurs WHERE pseudo ='".$pseudo."'");
+        $req->execute(array($_SESSION['user']));
+        $data = $req->fetch();
+
+        /*$req2 = $GLOBALS['bdd']->prepare("SELECT id FROM pc");
+        $req2->execute(array($_SESSION['pc']));
+        $data2 = $req2->fetch();*/
+
+    ?>
+    <?php
+        $RequetSQL = "SELECT pc.nom_pc AS nompc ,panier.id AS id FROM `panier`, utilisateurs, pc WHERE panier.id_utilisateurs = utilisateurs.id AND panier.id_pc = pc.id AND utilisateurs.id = '".$data["id"]."'";
+        $resultat = $GLOBALS['bdd'] -> query($RequetSQL);
+
+    ?>
+
+    <?php
+    if(isset($_POST['Supprimer']))
+    {
+        
+    }
 
 
+
+
+    ?>
+    <form action="" method="POST" >
+        <h1>Supprimer une commande:</h1>
+                    
+        <?php $n = 1  ?>
+
+        <label><b>Vos Commandes :</b></label>
+        <select name=id_pizza>
+            <option value="">Choisisez votre Commande</option>
+        <?php 
+        while($tab = $resultat->fetch()){    
+            
+            
+            ?>
+            
+            <?php
+                echo '<option value="'.$tab["id"].'">';echo $n ;echo " : ";echo ''.$tab["nompc"].'</option>';
+            ?>
+            
+            <?php
+            $n = $n +1;
+                    
+                
+        }
+        
+
+        ?>
+        </select>
+        
+                    
+        <input type="submit"  id="submit" value="Supprimer votre commande" name="Supprimer">
+
+                    
+                    
+    </form>
         
         <script src="" async defer></script>
     </body>

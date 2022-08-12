@@ -19,6 +19,9 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+    <?php
+        require_once 'pdo/config.php'; // ajout connexion bdd 
+    ?>
      
     <header>
     <nav>
@@ -48,6 +51,26 @@
             
     </nav>
 </header>
+    <form action="" method="POST" >
+        <h1>Mofifier une commande:</h1>
+                    
+        
+
+        <label><b>Vos Commandes :</b></label> 
+        <select name="id_pc" id="select-pc">
+            <option value="">Choisisez vos commandes</option>
+            <option value="1"></option>
+        </select>
+
+                    
+        <input type="submit"  id="submit" value="Commander" name="Modifier">
+
+                    
+                    
+    </form>
+
+    
+    
         
         <script src="" async defer></script>
     </body>
