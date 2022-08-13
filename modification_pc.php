@@ -16,6 +16,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="16x16" href="Image/logo_pc.jpg">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
@@ -51,22 +52,80 @@
             
     </nav>
 </header>
-    <form action="" method="POST" >
-        <h1>Mofifier une commande:</h1>
-                    
+<?php
+        $pseudo = $_SESSION['pseudo'];
+        //echo $pseudo;
+        $req = $GLOBALS['bdd']->prepare("SELECT id FROM utilisateurs WHERE pseudo ='".$pseudo."'");
+        $req->execute(array($_SESSION['user']));
+        $data = $req->fetch();
+
         
 
-        <label><b>Vos Commandes :</b></label> 
-        <select name="id_pc" id="select-pc">
-            <option value="">Choisisez vos commandes</option>
-            <option value="1"></option>
+    ?>
+    <?php
+        $RequetSQL = "SELECT pc.nom_pc AS nompc ,panier.id AS id FROM `panier`, utilisateurs, pc WHERE panier.id_utilisateurs = utilisateurs.id AND panier.id_pc = pc.id AND utilisateurs.id = '".$data["id"]."'";
+        $resultat = $GLOBALS['bdd'] -> query($RequetSQL);
+
+    ?>
+
+    <?php
+    if(isset($_POST['Modifier']))
+    {
+        $id_pc = $_POST['id_pc'];
+
+        $reqSuprimmer = "UPDATE panier SET id_pc = ";
+        $req = $GLOBALS['bdd'] -> query($reqSuprimmer);
+
+        header('Location: liste_commande.php'); // On redirige vers la liste des commandes de l'utilisateur
+        die();
+    }
+
+
+
+
+    ?>
+    <form action="" method="POST" >
+        <h1>Modifier une commande:</h1>
+                    
+        <?php $n = 1  ?>
+
+        <label><b>Vos Commandes :</b></label>
+        <select name="id_modifier" id="select-pc">
+            <option value="">Choisisez votre Commande</option>
+        <?php 
+        while($tab = $resultat->fetch()){    
+            
+            
+            ?>
+            
+            <?php
+                echo '<option value="'.$tab["id"].'">';echo $n ;echo " : ";echo ''.$tab["nompc"].'</option>';
+            ?>
+            
+            <?php
+            $n = $n +1;
+                    
+                
+        }
+        
+
+        ?>
         </select>
 
+        <select name="id_pc" id="select-pc">
+                        <option value="">Choisisez votre pc</option>
+                        <option value="1">PC HAUT DE GAMME</option>
+                        <option value="2">PC MOYEN DE GAMME</option>
+                        <option value="3">PC PORTABLE HAUT DE GAMME</option>
+                        <option value="4">PC PORTABLE MOYEN DE GAMME</option>
+        </select>
+        
                     
-        <input type="submit"  id="submit" value="Commander" name="Modifier">
+        <input type="submit"  id="submit" value="Modifier votre commande" name="Modifier">
 
                     
                     
+    </form>      
     </form>
 
     

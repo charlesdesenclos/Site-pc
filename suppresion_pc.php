@@ -17,6 +17,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="16x16" href="Image/logo_pc.jpg">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
@@ -58,9 +59,7 @@
         $req->execute(array($_SESSION['user']));
         $data = $req->fetch();
 
-        /*$req2 = $GLOBALS['bdd']->prepare("SELECT id FROM pc");
-        $req2->execute(array($_SESSION['pc']));
-        $data2 = $req2->fetch();*/
+        
 
     ?>
     <?php
@@ -72,7 +71,13 @@
     <?php
     if(isset($_POST['Supprimer']))
     {
-        
+        $id_pc = $_POST['id_pc'];
+
+        $reqSuprimmer = "DELETE FROM panier where id = '".$id_pc."'";
+        $req = $GLOBALS['bdd'] -> query($reqSuprimmer);
+
+        header('Location: liste_commande.php'); // On redirige vers la liste des commandes de l'utilisateur
+        die();
     }
 
 
@@ -85,7 +90,7 @@
         <?php $n = 1  ?>
 
         <label><b>Vos Commandes :</b></label>
-        <select name=id_pizza>
+        <select name="id_pc" id="select-pc">
             <option value="">Choisisez votre Commande</option>
         <?php 
         while($tab = $resultat->fetch()){    
