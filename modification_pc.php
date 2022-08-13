@@ -71,9 +71,10 @@
     <?php
     if(isset($_POST['Modifier']))
     {
+        $id_modifier = $_POST['id_modifier'];
         $id_pc = $_POST['id_pc'];
 
-        $reqSuprimmer = "UPDATE panier SET id_pc = ";
+        $reqSuprimmer = "UPDATE panier SET id_pc = '".$id_pc."' WHERE id ='".$id_modifier."' " ;
         $req = $GLOBALS['bdd'] -> query($reqSuprimmer);
 
         header('Location: liste_commande.php'); // On redirige vers la liste des commandes de l'utilisateur
@@ -84,6 +85,8 @@
 
 
     ?>
+
+<div id="container">
     <form action="" method="POST" >
         <h1>Modifier une commande:</h1>
                     
@@ -111,7 +114,7 @@
 
         ?>
         </select>
-
+        <label><b>Choisissez votre nouveaux pc :</b></label>
         <select name="id_pc" id="select-pc">
                         <option value="">Choisisez votre pc</option>
                         <option value="1">PC HAUT DE GAMME</option>
@@ -129,7 +132,7 @@
     </form>
 
     
-    
+    </div>   
         
         <script src="" async defer></script>
     </body>

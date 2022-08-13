@@ -84,6 +84,7 @@
 
 
     ?>
+    <div id="container">
     <form action="" method="POST" >
         <h1>Supprimer une commande:</h1>
                     
@@ -118,6 +119,7 @@
                     
                     
     </form>
+    </div>
         
         <script src="" async defer></script>
     </body>
