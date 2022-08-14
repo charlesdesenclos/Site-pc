@@ -71,11 +71,12 @@
     <?php
     if(isset($_POST['Modifier']))
     {
-        $id_modifier = $_POST['id_modifier'];
-        $id_pc = $_POST['id_pc'];
+        include("./Classe/Panier.php");
 
-        $reqSuprimmer = "UPDATE panier SET id_pc = '".$id_pc."' WHERE id ='".$id_modifier."' " ;
-        $req = $GLOBALS['bdd'] -> query($reqSuprimmer);
+        $ThePanier = new Panier(null, null, null);
+
+        $ThePanier -> modifier_panier($_POST['id_modifier'], $_POST['id_pc']);
+        
 
         header('Location: liste_commande.php'); // On redirige vers la liste des commandes de l'utilisateur
         die();
@@ -129,7 +130,7 @@
                     
                     
     </form>      
-    </form>
+    
 
     
     </div>   

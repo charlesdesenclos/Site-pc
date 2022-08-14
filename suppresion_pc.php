@@ -71,10 +71,11 @@
     <?php
     if(isset($_POST['Supprimer']))
     {
-        $id_pc = $_POST['id_pc'];
+        include("./Classe/Panier.php");
 
-        $reqSuprimmer = "DELETE FROM panier where id = '".$id_pc."'";
-        $req = $GLOBALS['bdd'] -> query($reqSuprimmer);
+        $ThePanier = new Panier(null, null, null);
+
+        $ThePanier -> supprimer_panier($_POST['id_pc']);
 
         header('Location: liste_commande.php'); // On redirige vers la liste des commandes de l'utilisateur
         die();

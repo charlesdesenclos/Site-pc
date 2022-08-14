@@ -29,6 +29,23 @@
             $reqCommande = "INSERT INTO panier (id_pc, id_utilisateurs ) VALUES ( '".$id_pc."', '".$data."' )";
             $resultat = $GLOBALS['bdd'] -> query($reqCommande);
         }
+
+        public function modifier_panier($id_modifier, $id_pc)
+        {
+            $id_modifier = $_POST['id_modifier'];
+            $id_pc = $_POST['id_pc'];
+
+            $reqModifier = "UPDATE panier SET id_pc = '".$id_pc."' WHERE id ='".$id_modifier."' " ;
+            $req = $GLOBALS['bdd'] -> query($reqModifier);
+        }
+
+        public function supprimer_panier($id_pc)
+        {
+            $id_pc = $_POST['id_pc'];
+
+            $reqSuprimmer = "DELETE FROM panier where id = '".$id_pc."'";
+            $req = $GLOBALS['bdd'] -> query($reqSuprimmer);
+        }
     }
 
 
