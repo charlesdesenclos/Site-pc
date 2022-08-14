@@ -3,6 +3,8 @@
 
         include("./Classe/User.php");
 
+        $TheUser = new User(null,null,null);
+
         //echo $_SESSION['pseudo'];
         
  ?>
@@ -52,149 +54,155 @@
             
     </nav>
 </header>
-<?php
-    $pseudo = $_SESSION['pseudo'];
-    //echo $pseudo;
-    $req = $bdd->prepare("SELECT id FROM utilisateurs WHERE pseudo ='".$pseudo."'");
-    $req->execute(array($_SESSION['user']));
-    $data = $req->fetch();
 
-?>
-
-<?php
-    $resultEtape1 = false;
-    $resultEtape2 = false;
-    
-    if(isset($_POST['Adresse']) && isset($data['id']))
-    {
-
-        include("./Classe/Adresse.php");
-
-        $TheAdresse = new Adresse(null,null,null,null,null,null);
-
-        $TheAdresse->inscription_adresse($_POST['num_porte'], $_POST['rue'], $_POST['ville'], $_POST['code_postale'], $data);
-
-        $resultEtape1 = true;
-    }
-
-    if(isset($_POST['Bancaire']) && isset($data['id']))
-    {
-        
-        include("./Classe/Bancaire.php");
-
-        $TheBancaire = new Bancaire(null,null,null,null,null,null);
-
-        $TheBancaire->inscription_bancaire($_POST['nom_carte'], $_POST['num_carte'], $_POST['date_expiration'], $_POST['cvc'], $data);
-
-        $resultEtape1 = true;
-        $resultEtape2 = true;
-    }
-
-    if(isset($_POST['Commande']) && isset($data['id']))
-    {
-
-        include("./Classe/Panier.php");
-
-        $ThePanier = new Panier(null, null, null);
-
-        $ThePanier-> inscription_panier($_POST['id_pc'], $data);
-
-        header('Location: index.php'); // On redirige vers l'index
-        die();
-
-        
-    }
-
-
-?>
-
-<div id="container">
-
-    <?php
-            if($resultEtape1 == false && $resultEtape2 == false)
-            {?>
-            <!--Adresse-->
-                <form action="" method="POST" >
-                    <h1>Etapes 1:</h1>
-                    
-                    <h2>Adresse</h2>
-
-                    <input type="text" placeholder="Entrez votre numéro de porte" name="num_porte" required>
-
-                    <input type="text" placeholder="Entrez votre rue" name="rue" required>
-
-                    <input type="text" placeholder="Entrez votre ville" name="ville" required>
-
-                    <input type="text" placeholder="Entrez votre code postale" name="code_postale" required>
-
-                    
-                    <input type="submit"  id="submit" value="Valider votre Adresse" name="Adresse">
-
-                    
-                    
-                </form>
-
-            <?php
-            }
-            else if($resultEtape1 == true && $resultEtape2 == false)
-            {?>
-            <!--Coordonnées Bancaires-->
-                <form action="" method="POST" >
-                    <h1>Etapes 2:</h1>
-                    
-                    <h2>Coordonnées Bancaires</h2>
-
-                    <input type="text" placeholder="Entrez votre nom de carte" name="nom_carte" required>
-
-                    <input type="text" placeholder="Entrez votre numéro de carte" name="num_carte" required>
-
-                    <input type="text" placeholder="Entrez la date d'expiration" name="date_expiration" required>
-
-                    <input type="text" placeholder="Entrez votre cvc" name="cvc" required>
-
-                    
-                    <input type="submit"  id="submit" value="Valider vos coordonnées bancaires" name="Bancaire">
-
-                    
-                    
-                </form>
-            <?php    
-            }
-            else if($resultEtape1 == true && $resultEtape2 == true)
-            {?>
-            <!--Commande-->
-                <form action="" method="POST" >
-                    <h1>Etapes 3:</h1>
-                    
-                    <h2>Commande</h2>
-
-                    <label><b>PC :</b></label> 
-                    <select name="id_pc" id="select-pc">
-                        <option value="">Choisisez votre pc</option>
-                        <option value="1">PC HAUT DE GAMME</option>
-                        <option value="2">PC MOYEN DE GAMME</option>
-                        <option value="3">PC PORTABLE HAUT DE GAMME</option>
-                        <option value="4">PC PORTABLE MOYEN DE GAMME</option>
-                    </select>
-
-                    
-                    <input type="submit"  id="submit" value="Commander" name="Commande">
-
-                    
-                    
-                </form>
-                <?php
-            }
-
-
-
-
-
-
-    ?>
          
             
-        </div>
+        
+        <?php
+        if($_SESSION['pseudo']) //affiche la page commande si on est connecté sinon cela nous permet de nous connecter pour commander
+        {?>
+        
+            <?php
+            $pseudo = $_SESSION['pseudo'];
+            //echo $pseudo;
+            $req = $bdd->prepare("SELECT id FROM utilisateurs WHERE pseudo ='".$pseudo."'");
+            $req->execute(array($_SESSION['user']));
+            $data = $req->fetch();
+
+            ?>
+
+            <?php
+            $resultEtape1 = false;
+            $resultEtape2 = false;
+    
+            if(isset($_POST['Adresse']) && isset($data['id']))
+            {
+
+                include("./Classe/Adresse.php");
+
+                $TheAdresse = new Adresse(null,null,null,null,null,null);
+
+                $TheAdresse->inscription_adresse($_POST['num_porte'], $_POST['rue'], $_POST['ville'], $_POST['code_postale'], $data);
+
+                $resultEtape1 = true;
+            }
+
+            if(isset($_POST['Bancaire']) && isset($data['id']))
+            {
+        
+                include("./Classe/Bancaire.php");
+
+                $TheBancaire = new Bancaire(null,null,null,null,null,null);
+
+                $TheBancaire->inscription_bancaire($_POST['nom_carte'], $_POST['num_carte'], $_POST['date_expiration'], $_POST['cvc'], $data);
+
+                $resultEtape1 = true;
+                $resultEtape2 = true;
+            }
+
+            if(isset($_POST['Commande']) && isset($data['id']))
+            {
+
+                include("./Classe/Panier.php");
+
+                $ThePanier = new Panier(null, null, null);
+
+                $ThePanier-> inscription_panier($_POST['id_pc'], $data);
+
+                header('Location: index.php'); // On redirige vers l'index
+                die();
+
+        
+            }
+
+
+            ?>
+
+            <div id="container">
+
+            <?php
+                if($resultEtape1 == false && $resultEtape2 == false)
+                {?>
+                <!--Adresse-->
+                    <form action="" method="POST" >
+                        <h1>Etapes 1:</h1>
+                    
+                        <h2>Adresse</h2>
+
+                        <input type="text" placeholder="Entrez votre numéro de porte" name="num_porte" required>
+
+                        <input type="text" placeholder="Entrez votre rue" name="rue" required>
+
+                        <input type="text" placeholder="Entrez votre ville" name="ville" required>
+
+                        <input type="text" placeholder="Entrez votre code postale" name="code_postale" required>
+
+                    
+                        <input type="submit"  id="submit" value="Valider votre Adresse" name="Adresse">
+
+                    
+                    
+                    </form>
+
+                <?php
+                }
+                else if($resultEtape1 == true && $resultEtape2 == false)
+                {?>
+                <!--Coordonnées Bancaires-->
+                    <form action="" method="POST" >
+                        <h1>Etapes 2:</h1>
+                    
+                        <h2>Coordonnées Bancaires</h2>
+
+                        <input type="text" placeholder="Entrez votre nom de carte" name="nom_carte" required>
+
+                        <input type="text" placeholder="Entrez votre numéro de carte" name="num_carte" required>
+
+                        <input type="text" placeholder="Entrez la date d'expiration" name="date_expiration" required>
+
+                        <input type="text" placeholder="Entrez votre cvc" name="cvc" required>
+
+                    
+                        <input type="submit"  id="submit" value="Valider vos coordonnées bancaires" name="Bancaire">
+
+                    
+                    
+                    </form>
+                <?php    
+                }
+                else if($resultEtape1 == true && $resultEtape2 == true)
+                {?>
+                <!--Commande-->
+                    <form action="" method="POST" >
+                        <h1>Etapes 3:</h1>
+                    
+                        <h2>Commande</h2>
+
+                        <label><b>PC :</b></label> 
+                        <select name="id_pc" id="select-pc">
+                            <option value="">Choisisez votre pc</option>
+                            <option value="1">PC HAUT DE GAMME</option>
+                            <option value="2">PC MOYEN DE GAMME</option>
+                            <option value="3">PC PORTABLE HAUT DE GAMME</option>
+                            <option value="4">PC PORTABLE MOYEN DE GAMME</option>
+                        </select>
+
+                    
+                        <input type="submit"  id="submit" value="Commander" name="Commande">
+
+                    
+                    
+                    </form>
+                    <?php
+                } 
+
+
+           
+            }
+            else
+            {
+                include("session/session.php");
+            }?>
         
         <script src="" async defer></script>
     </body>
