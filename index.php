@@ -22,12 +22,7 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <!--
-        <?php/*
-            $User1 = new User()
-        */
-        ?>
-        -->
+        
 
 
 <header>

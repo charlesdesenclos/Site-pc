@@ -97,6 +97,7 @@
         <select name="id_modifier" id="select-pc">
             <option value="">Choisisez votre Commande</option>
         <?php 
+        // affiche les commandes déja faites par l'utilisateur
         while($tab = $resultat->fetch()){    
             
             

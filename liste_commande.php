@@ -86,7 +86,7 @@
                     <th>Nom de l'utilisateurs</th>
                 </tr>
                 <?php
-                
+                    //affiche la liste des commandes de l'utilisateurs
                     echo"<h2 clas='espace2'>Voici la liste des commandes :</h2>";
                     while($tab = $RequetStatement->fetch()){
                         if($tab['id'] == $data['id'])

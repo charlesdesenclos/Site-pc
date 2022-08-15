@@ -50,7 +50,7 @@
             
     </nav>
 </header>
-
+    <!-- Affiche les pc disponibles -->
     <div class="landing-page">
         <div align="center">
             <h1 class="big-title"><mark>Nos PC !</mark></h1>
