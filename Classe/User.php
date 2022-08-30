@@ -41,13 +41,14 @@
                 echo"Vous êtes connectés";
                 $_SESSION['Connexion'] = true;
                 echo $_SESSION['pseudo'] = $pseudo;
+                $_SESSION['connectionValide'] = true;
                
                 return true;
 
             }
             else 
             {
-                echo "L'email ".$email."' ou le mot de passe '".$password."' est incorrect.";
+                
                 return false;
             }
 

@@ -20,9 +20,17 @@
     if(isset($_POST['connexion']))
     {
         $TheUser->connection($_POST['pseudo'],$_POST['email'],$_POST['password']);
-
+        if($_SESSION['connectionValide'] == true)
+        {
             header('Location: index.php'); // On redirige vers la page de l'index
             die();
+        }
+        else if($_SESSION['connectionValide'] != true)
+        {
+           
+            echo "Le pseudo '".$_POST['pseudo']."', l'email '".$_POST['email']."' ou le mot de passe '".$_POST['password']."' est incorrect.";
+        }
+            
        
         
         
