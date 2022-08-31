@@ -87,7 +87,7 @@
     ?>
     <div id="container">
     <form action="" method="POST" >
-        <h2>Supprimer une commande:</h2>
+        <h2>Supprimer une commande :</h2>
                     
         <?php $n = 1  ?>
 
