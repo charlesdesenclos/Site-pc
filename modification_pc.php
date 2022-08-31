@@ -89,7 +89,7 @@
 
 <div id="container">
     <form action="" method="POST" >
-        <h1>Modifier une commande:</h1>
+        <h2>Modifier une commande:</h2>
                     
         <?php $n = 1  ?>
 
