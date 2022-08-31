@@ -128,7 +128,7 @@
                     <form action="" method="POST" >
                         <h1>Etapes 1:</h1>
                     
-                        <h2>Adresse</h2>
+                        <h2>Adresse :</h2>
 
                         <input type="text" placeholder="Entrez votre numéro de porte" name="num_porte" required>
 
@@ -153,7 +153,7 @@
                     <form action="" method="POST" >
                         <h1>Etapes 2:</h1>
                     
-                        <h2>Coordonnées Bancaires</h2>
+                        <h2>Coordonnées Bancaires :</h2>
 
                         <input type="text" placeholder="Entrez votre nom de carte" name="nom_carte" required>
 
@@ -177,7 +177,7 @@
                     <form action="" method="POST" >
                         <h1>Etapes 3:</h1>
                     
-                        <h2>Commande</h2>
+                        <h2>Commande :</h2>
 
                         <label><b>PC :</b></label> 
                         <select name="id_pc" id="select-pc">
